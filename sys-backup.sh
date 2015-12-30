@@ -21,6 +21,7 @@ if hash copy-cmd 2> /dev/null; then
   copy-cmd Cloud -username=$1 -password=$2 put $_backup_fname /backup/$_hostname 2> /dev/null
   copy-cmd Cloud -username=$1 -password=$2 put $_checksum_fname /backup/$_hostname 2> /dev/null
   echo "[$(date +%s)] Done uploading file." >> $_log_fname
+  rm -rf $_backup_fname $_checksum_fname
 else
   echo "[$(date +%s)] Copy command not found not uploading file." >> $_log_fname
 
